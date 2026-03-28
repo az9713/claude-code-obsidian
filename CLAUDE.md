@@ -61,6 +61,8 @@ obsidian append path="folder/note.md" content="..."
 
 For notes longer than ~2,000 characters, use the `Write` tool to write directly to disk instead of passing content via CLI argument (avoids shell argument length limits). Obsidian's file watcher picks up changes automatically.
 
+**Obsidian must be running** for any CLI command that reads vault data (`search`, `daily:read`, `tags`, etc.) — the CLI communicates with the app via a local socket. Writing files directly to disk with the `Write` tool works without Obsidian open.
+
 ## Daily Note Format
 
 Daily notes are at vault root: `YYYY-MM-DD.md`. When appending entries, use this format:

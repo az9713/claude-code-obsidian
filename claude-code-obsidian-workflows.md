@@ -295,6 +295,17 @@ If you're new to this setup, here's the recommended order to try these skills:
 
 ---
 
+## Does Obsidian Need to Be Open?
+
+Yes — the Obsidian app **must be running** for any CLI command that reads vault data (`obsidian search`, `obsidian daily:read`, `obsidian tags`, etc.). The CLI talks to the running Obsidian process via a local socket.
+
+However, the `Write` tool writing `.md` files directly to disk works **without** Obsidian open — Obsidian's file watcher picks up the changes next time it launches. So `vault-capture` and `vault-synthesize` (which use `Write` for long notes) will create the files either way, but the `obsidian daily:append` step at the end of those skills requires Obsidian to be running.
+
+> [!tip] Rule of thumb
+> Open Obsidian before running any `vault-*` skill. The app is lightweight — keeping it open in the background is the simplest approach.
+
+---
+
 ## How Local Skills Are Loaded
 
 > [!info] For curious users
